@@ -11,7 +11,7 @@ def rand_slug():
 
 class Category(models.Model):
     name = models.CharField(max_length=250,db_index=True)
-    parent = models.ForeignKey('self',on_delete=models.CASCADE, related_name='children',blank=True,bull=True )
+    parent = models.ForeignKey('self',on_delete=models.CASCADE, related_name='children',blank=True,null=True )
     slug = models.SlugField('URL',max_length=250,unique=True,null=False,editable=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
